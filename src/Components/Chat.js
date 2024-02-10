@@ -84,7 +84,7 @@ useEffect(()=>{
       setSeed(Math.floor(Math.random()*5000))
       ))
 
-    db.collection("Rooms")
+    db.collection("Rooms")                                                       // firebase realtime database usining long polling and not sockets.
       .doc(roomId).collection("messages")
       .orderBy("timestamp","asc")
       .onSnapshot(snapshot=>setMessages(snapshot.docs.map((doc=>doc.data()))
